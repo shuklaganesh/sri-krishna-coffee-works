@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Krishna Coffee Works - Digital Transformation Roadmap</title>
+    <style>
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Brand Colors */
+            --color-primary-dark: #3D2817;
+            --color-primary: #6B4423;
+            --color-secondary-light: #F5E6D3;
+            --color-secondary: #E8D5C4;
+            --color-accent-gold: #D4AF37;
+            --color-accent-brass: #B8960F;
+            --color-text-dark: #2C1810;
+            --color-background: #FAF7F2;
+            --color-white: #FFFFFF;
+            
+            /* Typography */
+            --font-serif: Georgia, 'Times New Roman', serif;
+            --font-sans: Arial, Helvetica, sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(61, 40, 23, 0.1);
+            --shadow-md: 0 4px 8px rgba(61, 40, 23, 0.15);
+            --shadow-lg: 0 8px 16px rgba(61, 40, 23, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-background);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--color-primary-dark);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--color-primary-dark);
+            border-bottom: 3px solid var(--color-accent-gold);
+            padding-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            color: var(--color-primary);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* ============================================
+           LAYOUT COMPONENTS
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .card {
+            background: var(--color-white);
+            border-radius: 8px;
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--color-accent-gold);
+        }
+
+        /* ============================================
+           HEADER / HERO SECTION
+           ============================================ */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            padding: var(--spacing-xxl) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            color: var(--color-white);
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-tagline {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--color-accent-gold);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: var(--spacing-lg);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-accent-gold);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--color-secondary-light);
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            background: var(--color-white);
+            box-shadow: var(--shadow-md);
+            z-index: 100;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--color-primary);
+            text-decoration: none;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary-dark);
+        }
+
+        /* Hamburger Menu Button */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--spacing-sm);
+            z-index: 101;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--color-primary);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* ============================================
+           TIMELINE
+           ============================================ */
+        .timeline-container {
+            position: relative;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin: var(--spacing-xl) 0;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--color-accent-gold) 0%, 
+                var(--color-accent-brass) 100%);
+            transform: translateY(-50%);
+        }
+
+        .timeline-phase {
+            position: relative;
+            background: var(--color-white);
+            border: 3px solid var(--color-accent-gold);
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 2;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-phase:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-phase.current {
+            background: var(--color-accent-gold);
+            color: var(--color-white);
+        }
+
+        .phase-number {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .phase-name {
+            font-size: 0.75rem;
+            margin-top: var(--spacing-xs);
+        }
+
+        /* ============================================
+           BUDGET TABLE
+           ============================================ */
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-lg) 0;
+            background: var(--color-white);
+            box-shadow: var(--shadow-md);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .budget-table thead {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .budget-table th,
+        .budget-table td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--color-secondary);
+        }
+
+        .budget-table tbody tr:hover {
+            background: var(--color-secondary-light);
+        }
+
+        .budget-table .total-row {
+            background: var(--color-accent-gold);
+            color: var(--color-white);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .budget-category {
+            font-weight: 600;
+            color: var(--color-primary-dark);
+        }
+
+        .budget-amount {
+            text-align: right;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* ============================================
+           PHASE CARDS
+           ============================================ */
+        .phase-card {
+            background: var(--color-white);
+            border-radius: 8px;
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border-top: 5px solid var(--color-accent-gold);
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--color-secondary);
+        }
+
+        .phase-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .phase-badge {
+            background: var(--color-accent-gold);
+            color: var(--color-white);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .phase-timeline {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .phase-content ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .phase-content li {
+            padding-left: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+        }
+
+        .phase-content li::before {
+            content: '☕';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-gold);
+        }
+
+        .deliverable-box {
+            background: var(--color-secondary-light);
+            border-left: 4px solid var(--color-accent-brass);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: 4px;
+        }
+
+        .budget-box {
+            background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+            color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            margin: var(--spacing-md) 0;
+        }
+
+        .checkpoint-box {
+            background: var(--color-white);
+            border: 2px solid var(--color-accent-gold);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: 8px;
+        }
+
+        /* ============================================
+           CHECKLIST
+           ============================================ */
+        .checklist {
+            list-style: none;
+            margin: var(--spacing-md) 0;
+        }
+
+        .checklist li {
+            padding: var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
+            background: var(--color-white);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .checklist li::before {
+            content: '☐';
+            color: var(--color-accent-gold);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           COLLAPSIBLE SECTIONS
+           ============================================ */
+        .collapsible {
+            background: var(--color-white);
+            border: 1px solid var(--color-secondary);
+            border-radius: 8px;
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            background: var(--color-secondary-light);
+            padding: var(--spacing-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .collapsible-header:hover {
+            background: var(--color-secondary);
+        }
+
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible.active .collapsible-icon {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding: 0 var(--spacing-md);
+        }
+
+        .collapsible.active .collapsible-content {
+            max-height: 5000px;
+            padding: var(--spacing-md);
+        }
+
+        /* ============================================
+           CALL TO ACTION
+           ============================================ */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: var(--color-white);
+            padding: var(--spacing-xxl) 0;
+            text-align: center;
+            margin-top: var(--spacing-xxl);
+        }
+
+        .cta-section h2 {
+            color: var(--color-white);
+            border-bottom: 3px solid var(--color-accent-gold);
+            display: inline-block;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .action-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: var(--spacing-lg);
+            transition: all 0.3s ease;
+        }
+
+        .action-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .action-item h4 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .action-item p {
+            color: var(--color-secondary-light);
+        }
+
+        .action-number {
+            background: var(--color-accent-gold);
+            color: var(--color-white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        /* ============================================
+           RISK MANAGEMENT
+           ============================================ */
+        .risk-item {
+            background: var(--color-white);
+            border-left: 4px solid #E74C3C;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border-radius: 4px;
+        }
+
+        .risk-title {
+            font-weight: 600;
+            color: #E74C3C;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .mitigation {
+            color: #27AE60;
+            margin-top: var(--spacing-sm);
+        }
+
+        .mitigation::before {
+            content: '✓ ';
+            font-weight: bold;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: var(--color-primary-dark);
+            color: var(--color-secondary-light);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        /* ============================================
+           PRINT STYLES
+           ============================================ */
+        @media print {
+            body {
+                background: white;
+                font-size: 12pt;
+            }
+
+            .nav-sticky,
+            .nav-toggle,
+            .hero-metrics {
+                display: none;
+            }
+
+            .hero {
+                background: var(--color-primary-dark);
+                padding: 2rem 0;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .card, .phase-card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .collapsible-content {
+                max-height: none !important;
+                padding: var(--spacing-md) !important;
+            }
+
+            .nav-menu {
+                display: none !important;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            .timeline {
+                flex-direction: column;
+                gap: var(--spacing-lg);
+            }
+
+            .timeline::before {
+                width: 4px;
+                height: 100%;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+            }
+
+            .timeline-phase {
+                width: 100px;
+                height: 100px;
+            }
+
+            /* Mobile Navigation */
+            .nav-sticky {
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+
+            .nav-toggle {
+                display: block;
+                margin-left: auto;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background: var(--color-white);
+                flex-direction: column;
+                align-items: stretch;
+                padding: var(--spacing-lg);
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-lg);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu a {
+                text-align: center;
+                padding: var(--spacing-md);
+                border-bottom: 1px solid var(--color-secondary);
+                font-size: 1.1rem;
+            }
+
+            .nav-menu a:last-child {
+                border-bottom: none;
+            }
+
+            .phase-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+
+            .budget-table {
+                font-size: 0.9rem;
+            }
+
+            .budget-table th,
+            .budget-table td {
+                padding: var(--spacing-sm);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .card, .phase-card {
+                padding: var(--spacing-md);
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gold {
+            color: var(--color-accent-gold);
+        }
+
+        .bg-light {
+            background-color: var(--color-secondary-light);
+        }
+
+        .mb-0 { margin-bottom: 0; }
+        .mb-1 { margin-bottom: var(--spacing-sm); }
+        .mb-2 { margin-bottom: var(--spacing-md); }
+        .mb-3 { margin-bottom: var(--spacing-lg); }
+
+        .mt-0 { margin-top: 0; }
+        .mt-1 { margin-top: var(--spacing-sm); }
+        .mt-2 { margin-top: var(--spacing-md); }
+        .mt-3 { margin-top: var(--spacing-lg); }
+
+        /* ============================================
+           COFFEE BEAN PATTERN (SUBTLE DECORATION)
+           ============================================ */
+        .pattern-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pattern-bg::before {
+            content: '☕';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.03;
+            top: -50px;
+            right: -30px;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        /* UPDATE MARKER STYLING */
+        .update-marker {
+            background: #FFF3CD;
+            border-left: 4px solid #FFA500;
+            padding: var(--spacing-xs);
+            font-size: 0.85rem;
+            color: #856404;
+            display: inline-block;
+            border-radius: 4px;
+            margin-left: var(--spacing-sm);
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Sri Krishna Coffee Works</h1>
+            <p class="hero-tagline">Since 1953. Brewed with legacy. Carried forward with love.</p>
+            <h2 style="color: var(--color-white); border-bottom: none; margin-bottom: var(--spacing-md);">Digital Transformation Roadmap</h2>
+            
+            <div class="hero-metrics">
+                <div class="metric-card">
+                    <span class="metric-value">6-8</span>
+                    <span class="metric-label">Weeks Timeline</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">₹1.03L+</span>
+                    <span class="metric-label">Minimum Investment</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">7</span>
+                    <span class="metric-label">Project Phases</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">May 2026</span> <!-- UPDATE: Target launch date -->
+                    <span class="metric-label">Target Launch</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         STICKY NAVIGATION
+         ============================================ -->
+    <nav class="nav-sticky">
+        <div class="container">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#budget">Budget</a></li>
+                <li><a href="#phases">Phases</a></li>
+                <li><a href="#vendor">Vendor Plan</a></li>
+                <li><a href="#checkpoints">Quality Checks</a></li>
+                <li><a href="#risks">Risk Management</a></li>
+                <li><a href="#next-steps">Next Steps</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         TIMELINE OVERVIEW
+         ============================================ -->
+    <section id="timeline" class="section">
+        <div class="container">
+            <h2>Project Timeline Overview</h2>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-phase current" title="Current Phase">
+                        <span class="phase-number">1</span>
+                        <span class="phase-name">Brand Foundation</span>
+                    </div>
+                    <div class="timeline-phase" title="Weeks 2-4">
+                        <span class="phase-number">2</span>
+                        <span class="phase-name">Packaging</span>
+                    </div>
+                    <div class="timeline-phase" title="Weeks 3-5">
+                        <span class="phase-number">3</span>
+                        <span class="phase-name">E-Commerce</span>
+                    </div>
+                    <div class="timeline-phase" title="Weeks 4-5">
+                        <span class="phase-number">4</span>
+                        <span class="phase-name">GMB & Local SEO</span>
+                    </div>
+                    <div class="timeline-phase" title="Weeks 5-6">
+                        <span class="phase-number">5</span>
+                        <span class="phase-name">Content & SEO</span>
+                    </div>
+                    <div class="timeline-phase" title="Weeks 6-8">
+                        <span class="phase-number">6</span>
+                        <span class="phase-name">Automation</span>
+                    </div>
+                    <div class="timeline-phase" title="Week 8+">
+                        <span class="phase-number">7</span>
+                        <span class="phase-name">Launch</span>
+                    </div>
+                </div>
+                <p class="text-center mt-3" style="color: var(--color-primary);">
+                    <strong>Fast-Track Approach:</strong> 6-8 weeks total | Quality-conscious execution | Heritage-modern balance
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BUDGET BREAKDOWN
+         ============================================ -->
+    <section id="budget" class="section bg-light pattern-bg">
+        <div class="container">
+            <h2>Budget Breakdown</h2>
+            
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th style="text-align: right;">Amount (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Design Services -->
+                    <tr>
+                        <td class="budget-category" colspan="3">DESIGN SERVICES</td>
+                    </tr>
+                    <tr>
+                        <td>Logo & Brand Identity</td>
+                        <td>Khushi Teli - Logo design, brand guidelines</td>
+                        <td class="budget-amount">7,000</td>
+                    </tr>
+                    <tr>
+                        <td>Packaging Design</td>
+                        <td>250g pouch design, print-ready files</td>
+                        <td class="budget-amount">7,000</td>
+                    </tr>
+                    <tr>
+                        <td>Business Collaterals</td>
+                        <td>Business cards, letterheads, social templates</td>
+                        <td class="budget-amount">Included</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Design Services Subtotal</strong></td>
+                        <td class="budget-amount"><strong>14,000</strong></td>
+                    </tr>
+                    
+                    <!-- Digital Infrastructure -->
+                    <tr>
+                        <td class="budget-category" colspan="3">DIGITAL INFRASTRUCTURE</td>
+                    </tr>
+                    <tr>
+                        <td>E-Commerce Store Development</td>
+                        <td>Shopify store setup, theme customization, product catalog</td>
+                        <td class="budget-amount">60,000</td>
+                    </tr>
+                    <tr>
+                        <td>Shopify Subscription</td>
+                        <td>12 months @ ₹2,299/month (Basic plan)</td>
+                        <td class="budget-amount">27,588</td>
+                    </tr>
+                    <tr>
+                        <td>Apps & Plugins</td>
+                        <td>Essential Shopify apps (optional)</td>
+                        <td class="budget-amount">2,000-5,000 <span class="update-marker">Optional</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Digital Infrastructure Subtotal</strong></td>
+                        <td class="budget-amount"><strong>89,588-92,588</strong></td>
+                    </tr>
+                    
+                    <!-- Marketing & Content -->
+                    <tr>
+                        <td class="budget-category" colspan="3">MARKETING & CONTENT</td>
+                    </tr>
+                    <tr>
+                        <td>Product Photography</td>
+                        <td>Professional or DIY with guidance</td>
+                        <td class="budget-amount">3,000-8,000 <span class="update-marker">Optional</span></td>
+                    </tr>
+                    <tr>
+                        <td>Copywriting</td>
+                        <td>Website content, product descriptions</td>
+                        <td class="budget-amount">DIY</td>
+                    </tr>
+                    <tr>
+                        <td>SEO Setup</td>
+                        <td>Initial optimization and keyword research</td>
+                        <td class="budget-amount">DIY or 8,000-15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Email Marketing Tool</td>
+                        <td>3 months subscription (Klaviyo/Mailchimp)</td>
+                        <td class="budget-amount">0-3,000 <span class="update-marker">Optional</span></td>
+                    </tr>
+                    <tr>
+                        <td>Launch Advertising (Optional)</td>
+                        <td>Social media ads, Google Ads</td>
+                        <td class="budget-amount">0-5,000</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Marketing & Content Subtotal</strong></td>
+                        <td class="budget-amount"><strong>3,000-31,000</strong></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="2">TOTAL ESTIMATED INVESTMENT (All Optional Items)</td>
+                        <td style="text-align: right;">₹1,06,588 - ₹1,37,588</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="2">MINIMUM VIABLE LAUNCH (Core Essentials Only)</td>
+                        <td style="text-align: right;">₹1,03,588</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="card mt-3">
+                <h4>Budget Notes</h4>
+                <ul>
+                    <li><strong>Confirmed Costs:</strong> Design services (₹14,000), E-Commerce Development (₹60,000), Shopify subscription 1 year (₹27,588)</li>
+                    <li><strong>Domain Already Secured:</strong> Domain registration cost not included as already purchased</li>
+                    <li><strong>DIY Approach:</strong> Copywriting will be handled in-house to optimize costs</li>
+                    <li><strong>Payment Terms:</strong> Design - 25% advance (₹3,500) upon project confirmation + 75% on delivery (₹10,500) | E-Commerce - 50% advance (₹30,000) + 50% on completion (₹30,000)</li>
+                    <li><strong>Packaging Production:</strong> To be quoted separately by vendor (not included in this digital transformation budget)</li>
+                    <li><strong>Minimum Launch Budget:</strong> ₹1,03,588 (all core essentials included)</li>
+                    <li><strong>FSSAI Certification:</strong> Already obtained by client</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PHASE-WISE ROADMAP
+         ============================================ -->
+    <section id="phases" class="section">
+        <div class="container">
+            <h2>Phase-Wise Roadmap</h2>
+
+            <!-- PHASE 1: Brand Foundation -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-title">
+                        <span class="phase-badge">PHASE 1</span>
+                        <h3 class="mb-0">Brand Foundation</h3>
+                    </div>
+                    <span class="phase-timeline">Weeks 1-2</span>
+                </div>
+                
+                <div class="phase-content">
+                    <h4>High-Level Activities:</h4>
+                    <ul>
+                        <li>Vendor coordination and technical specs gathering</li>
+                        <li>Regulatory text preparation (FSSAI compliance - already certified)</li>
+                        <li>Competitor research and analysis</li>
+                        <li>Logo design and brand identity development with Khushi</li>
+                        <li>Brand style guide creation</li>
+                        <li>Project contract signing and advance payment processing</li>
+                    </ul>
+
+                    <div class="deliverable-box">
+                        <h4>📦 Deliverables:</h4>
+                        <p>Approved logo, color palette, typography, brand guidelines document, signed project contract</p>
+                    </div>
+
+                    <div class="budget-box">
+                        <h4>💰 Budget: ₹3,500</h4>
+                        <p>25% advance for design services (₹3,500 of ₹14,000 total)</p>
+                    </div>
+
+                    <div class="checkpoint-box">
+                        <h4>✓ Quality Checkpoint:</h4>
+                        <ul>
+                            <li>Logo works at 1-inch size (business card scale)</li>
+                            <li>Logo works in single color (black & white)</li>
+                            <li>Brand colors meet WCAG contrast ratios</li>
+                            <li>Typography hierarchy clear and readable</li>
+                            <li>Project contract signed by both parties</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 2: Packaging Design & Production -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-title">
+                        <span class="phase-badge">PHASE 2</span>
+                        <h3 class="mb-0">Packaging Design & Production</h3>
+                    </div>
+                    <span class="phase-timeline">Weeks 2-4</span>
+                </div>
+                
+                <div class="phase-content">
+                    <h4>High-Level Activities:</h4>
+                    <ul>
+                        <li>Receive vendor die-line and technical specifications</li>
+                        <li>Packaging design with regulatory compliance (Khushi + vendor review)</li>
+                        <li>Print-ready file preparation and vendor technical approval</li>
+                        <li>Sample pouch production and quality review</li>
+                        <li>Design refinements based on physical samples</li>
+                        <li>Final production run approval</li>
+                    </ul>
+
+                    <div class="deliverable-box">
+                        <h4>📦 Deliverables:</h4>
+                        <p>Production-ready pouch design (.AI, .PDF), vendor-approved print files, design completion payment</p>
+                    </div>
+
+                    <div class="budget-box">
+                        <h4>💰 Budget: ₹10,500</h4>
+                        <p>Remaining 75% of design services (₹10,500 final payment to Khushi)</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9;">Note: Packaging production costs to be quoted separately by vendor</p>
+                    </div>
+
+                    <div class="checkpoint-box">
+                        <h4>✓ Quality Checkpoint:</h4>
+                        <ul>
+                            <li>FSSAI compliance verification</li>
+                            <li>Degassing valve integration confirmed</li>
+                            <li>Print color accuracy verified on sample</li>
+                            <li>Vent functionality tested on sample</li>
+                            <li>Zipper quality and resealability tested</li>
+                            <li>All mandatory FSSAI elements present and legible</li>
+                        </ul>
+                    </div>
+
+                    <div class="risk-item">
+                        <div class="risk-title">⚠️ Caution Point:</div>
+                        <p>Vendor must review and approve files before production; include buffer time for revisions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 3: E-Commerce Store -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-title">
+                        <span class="phase-badge">PHASE 3</span>
+                        <h3 class="mb-0">Digital Infrastructure - E-Commerce Store</h3>
+                    </div>
+                    <span class="phase-timeline">Weeks 3-5</span>
+                </div>
+                
+                <div class="phase-content">
+                    <h4>High-Level Activities:</h4>
+                    <ul>
+                        <li>Shopify store setup and theme customization</li>
+                        <li>Product catalog creation with SEO optimization</li>
+                        <li>Payment gateway integration (Razorpay/PayU/COD)</li>
+                        <li>Shipping zone configuration for India</li>
+                        <li>Content creation (About, Brewing Guides, FAQs)</li>
+                        <li>Mobile optimization and testing</li>
+                        <li>Heritage design implementation</li>
+                        <li>E-commerce development advance payment (50%)</li>
+                    </ul>
+
+                    <div class="deliverable-box">
+                        <h4>📦 Deliverables:</h4>
+                        <p>Fully functional e-commerce store ready for launch, mobile-optimized, payment-enabled</p>
+                    </div>
+
+                    <div class="budget-box">
+                        <h4>💰 Budget: ₹57,588-60,588</h4>
+                        <p>₹30,000 (50% advance for development) + ₹27,588 (Shopify 1 year) + ₹0-3,000 (optional apps)</p>
+                    </div>
+
+                    <div class="checkpoint-box">
+                        <h4>✓ Quality Checkpoint:</h4>
+                        <ul>
+                            <li>Mobile page load speed under 3 seconds</li>
+                            <li>Checkout process tested end-to-end</li>
+                            <li>Payment gateways functional (test transactions)</li>
+                            <li>Shipping calculator accurate for all Indian pin codes</li>
+                            <li>Email notifications sending correctly</li>
+                            <li>Product images high-quality and zoomable</li>
+                            <li>SEO meta tags present on all pages</li>
+                            <li>Analytics tracking verified</li>
+                            <li>SSL certificate active (HTTPS)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 4: GMB & Local SEO -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-title">
+                        <span class="phase-badge">PHASE 4</span>
+                        <h3 class="mb-0">Google My Business & Local SEO</h3>
+                    </div>
+                    <span class="phase-timeline">Weeks 4-5</span>
+                </div>
+                
+                <div class="phase-content">
+                    <h4>High-Level Activities:</h4>
+                    <ul>
+                        <li>GMB profile setup and optimization</li>
+                        <li>Location photos and product photography</li>
+                        <li>Local keyword research (Hyderabad-specific)</li>
+                        <li>NAP consistency across directories</li>
+                        <li>Review generation strategy setup</li>
+                        <li>Initial content posting schedule</li>
+                    </ul>
+
+                    <div class="deliverable-box">
+                        <h4>📦 Deliverables:</h4>
+                        <p>Active GMB profile, local citations, location-optimized content, initial reviews</p>
+                    </div>
+
+                    <div class="budget-box">
+                        <h4>💰 Budget: ₹0-8,000</h4>
+                        <p>Photography: DIY (₹0) or Professional (₹3,000-8,000 optional)</p>
+                    </div>
+
+                    <div class="checkpoint-box">
+                        <h4>✓ Quality Checkpoint:</h4>
+                        <ul>
+                            <li>GMB profile 100% complete</li>
+                            <li>Photo quality meets Google standards</li>
+                            <li>Accurate business information verified</li>
+                            <li>Categories correctly selected</li>
+                            <li>Q&A section populated</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 5: Content & SEO -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-title">
+                        <span class="phase-badge">PHASE 5</span>
+                        <h3 class="mb-0">Content Creation & SEO Strategy</h3>
+                    </div>
+                    <span class="phase-timeline">Weeks 5-6</span>
+                </div>
+                
+                <div class="phase-content">
+                    <h4>High-Level Activities:</h4>
+                    <ul>
+                        <li>Keyword research and content mapping</li>
+                        <li>On-page SEO optimization (meta tags, alt text, schema)</li>
+                        <li>Blog content creation (brewing guides, heritage story) - DIY</li>
+                        <li>Internal linking strategy implementation</li>
+                        <li>Technical SEO (sitemap, robots.txt, site speed)</li>
+                        <li>Google Analytics 4 setup and configuration</li>
+                        <li>E-commerce development final payment (50%)</li>
+                    </ul>
+
+                    <div class="deliverable-box">
+                        <h4>📦 Deliverables:</h4>
+                        <p>SEO-optimized website, initial blog content (3-5 articles), analytics tracking, keyword baseline, completed e-commerce store</p>
+                    </div>
+
+                    <div class="budget-box">
+                        <h4>💰 Budget: ₹30,000-45,000</h4>
+                        <p>₹30,000 (final 50% e-commerce payment) + ₹0 (copywriting DIY) + ₹0-15,000 (SEO optional)</p>
+                    </div>
+
+                    <div class="checkpoint-box">
+                        <h4>✓ Quality Checkpoint:</h4>
+                        <ul>
+                            <li>Keyword rankings baseline established</li>
+                            <li>Page speed scores >80 (mobile & desktop)</li>
+                            <li>Mobile usability verified</li>
+                            <li>All pages indexed by Google</li>
+                            <li>Schema markup implemented</li>
+                            <li>E-commerce development completed and approved</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 6: Automation -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-title">
+                        <span class="phase-badge">PHASE 6</span>
+                        <h3 class="mb-0">Workflow Automation & Soft Launch</h3>
+                    </div>
+                    <span class="phase-timeline">Weeks 6-8</span>
+                </div>
+                
+                <div class="phase-content">
+                    <h4>High-Level Activities:</h4>
+                    <ul>
+                        <li>Email automation setup (order confirmations, shipping, abandoned cart)</li>
+                        <li>Customer segmentation and list building</li>
+                        <li>Social media account setup and initial content</li>
+                        <li>Soft launch to friends/family/existing customers</li>
+                        <li>Feedback collection and refinement</li>
+                        <li>Pre-launch marketing (email list building, social teasers)</li>
+                    </ul>
+
+                    <div class="deliverable-box">
+                        <h4>📦 Deliverables:</h4>
+                        <p>Automated workflows active, soft launch completed, customer feedback collected, refined store</p>
+                    </div>
+
+                    <div class="budget-box">
+                        <h4>💰 Budget: ₹0-3,000</h4>
+                        <p>Email marketing tool subscription - 3 months (optional, ₹0-3,000)</p>
+                    </div>
+
+                    <div class="checkpoint-box">
+                        <h4>✓ Quality Checkpoint:</h4>
+                        <ul>
+                            <li>Email deliverability tested</li>
+                            <li>All automation workflows functional</li>
+                            <li>Customer feedback reviewed and integrated</li>
+                            <li>Order fulfillment process tested</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 7: Launch -->
+            <div class="phase-card">
+                <div class="phase-header">
+                    <div class="phase-title">
+                        <span class="phase-badge">PHASE 7</span>
+                        <h3 class="mb-0">Official Launch & Initial Marketing</h3>
+                    </div>
+                    <span class="phase-timeline">Week 8+</span>
+                </div>
+                
+                <div class="phase-content">
+                    <h4>High-Level Activities:</h4>
+                    <ul>
+                        <li>Official launch announcement</li>
+                        <li>Social media campaign execution</li>
+                        <li>Local influencer outreach (Hyderabad food/coffee bloggers)</li>
+                        <li>GMB posts and special offers</li>
+                        <li>Email campaign to subscriber list</li>
+                        <li>Monitor and optimize based on early data</li>
+                    </ul>
+
+                    <div class="deliverable-box">
+                        <h4>📦 Deliverables:</h4>
+                        <p>Launched brand, initial sales tracking, customer satisfaction monitoring</p>
+                    </div>
+
+                    <div class="budget-box">
+                        <h4>💰 Budget: ₹0-5,000</h4>
+                        <p>Optional paid advertising (Facebook/Instagram/Google Ads)</p>
+                    </div>
+
+                    <div class="checkpoint-box">
+                        <h4>✓ Quality Checkpoint:</h4>
+                        <ul>
+                            <li>First 100 orders target set</li>
+                            <li>Conversion rate monitoring active</li>
+                            <li>Customer satisfaction tracking (reviews, feedback)</li>
+                            <li>Website uptime monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         VENDOR COORDINATION PLAN
+         ============================================ -->
+    <section id="vendor" class="section bg-light">
+        <div class="container">
+            <h2>Vendor Coordination Plan</h2>
+            
+            <div class="card">
+                <h3>Standup Pouch Vendor - Critical Information Needed</h3>
+                
+                <div class="collapsible active">
+                    <div class="collapsible-header">
+                        <span><strong>Technical Specifications to Request</strong></span>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="checklist">
+                            <li>Exact die-line template (.AI or .PDF with layers)</li>
+                            <li>Degassing valve specifications:
+                                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                                    <li>Type (one-way valve vs. micro-perforations)</li>
+                                    <li>Exact placement coordinates</li>
+                                    <li>No-print zones around vent</li>
+                                    <li>Installation method and timing</li>
+                                    <li>Food-grade certification</li>
+                                </ul>
+                            </li>
+                            <li>Material specifications:
+                                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                                    <li>Laminate structure (BOPP/Metalized/PE recommended for coffee)</li>
+                                    <li>Barrier properties (aroma retention specs)</li>
+                                    <li>UV protection capabilities</li>
+                                    <li>Moisture barrier specifications</li>
+                                </ul>
+                            </li>
+                            <li>Resealable zipper details (type and placement)</li>
+                            <li>Printing specifications:
+                                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                                    <li>File format (print-ready PDF requirements)</li>
+                                    <li>Color management (CMYK, Pantone matching process)</li>
+                                    <li>Bleed requirements (typically 3mm)</li>
+                                    <li>Safe text zones (minimum 5mm from trim)</li>
+                                    <li>Resolution requirements (300 DPI minimum)</li>
+                                    <li>Proofing process (digital and/or physical)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collapsible active">
+                    <div class="collapsible-header">
+                        <span><strong>Production Requirements</strong></span>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="checklist">
+                            <li>Minimum Order Quantity (MOQ) - expect 500-1,000 units</li>
+                            <li>Pricing tiers (500, 1,000, 2,500, 5,000 units)</li>
+                            <li>Lead time from approval to delivery</li>
+                            <li>Sample pouch availability and cost</li>
+                            <li>Payment terms (advance %, balance on delivery)</li>
+                            <li>Revision policy and associated costs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <span><strong>Vendor Evaluation Checklist</strong></span>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="checklist">
+                            <li>Request physical samples of previous work</li>
+                            <li>Check food-grade certifications</li>
+                            <li>Verify FSSAI compliance knowledge</li>
+                            <li>Assess responsiveness and communication</li>
+                            <li>Compare quotes from 2-3 vendors</li>
+                            <li>Check references from other food brands</li>
+                            <li>Confirm technical support during design phase</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <span><strong>Template Questions for Vendor</strong></span>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <ol style="padding-left: 1.5rem;">
+                            <li>"Can you provide the exact die-line template with degassing valve placement marked?"</li>
+                            <li>"What is your recommended laminate structure for coffee packaging to preserve aroma?"</li>
+                            <li>"Do you offer design review services to ensure print-ready files?"</li>
+                            <li>"What is your MOQ and price break structure?"</li>
+                            <li>"Can you provide a sample pouch (blank or with previous client design)?"</li>
+                            <li>"What is your typical lead time from file approval to delivery?"</li>
+                            <li>"Do you assist with FSSAI labeling compliance?"</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         QUALITY CHECKPOINTS
+         ============================================ -->
+    <section id="checkpoints" class="section">
+        <div class="container">
+            <h2>Quality Checkpoints</h2>
+
+            <div class="card">
+                <h3>Design Phase Checkpoints</h3>
+                <ul class="checklist">
+                    <li>Logo works at 1-inch size (business card scale)</li>
+                    <li>Logo works in single color (black & white)</li>
+                    <li>Brand colors accessible (WCAG contrast ratios)</li>
+                    <li>Typography hierarchy clear and readable</li>
+                    <li>Package die-line alignment verified by vendor</li>
+                    <li>All mandatory FSSAI elements present and legible</li>
+                    <li>Bleed and safe zones respected</li>
+                    <li>Degassing valve area designed intentionally</li>
+                    <li>Barcode clear zone maintained (5mm minimum)</li>
+                    <li>Tear notch placement doesn't cut through critical info</li>
+                    <li>Text readable from 3 feet away (shelf visibility test)</li>
+                    <li>Heritage elements visible ("Since 1953" prominent)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Pre-Production Checkpoints</h3>
+                <ul class="checklist">
+                    <li>Files in CMYK color mode (not RGB)</li>
+                    <li>All fonts outlined/converted to paths</li>
+                    <li>Images minimum 300 DPI at actual size</li>
+                    <li>Pantone colors specified (if using spot colors)</li>
+                    <li>Print-ready PDF with crop marks generated</li>
+                    <li>Vendor digital proof reviewed and approved</li>
+                    <li>Sample pouch physical review completed</li>
+                    <li>Color accuracy verified on sample</li>
+                    <li>Vent functionality tested on sample</li>
+                    <li>Zipper quality and resealability tested</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>E-commerce Checkpoints</h3>
+                <ul class="checklist">
+                    <li>Mobile page load speed under 3 seconds</li>
+                    <li>Checkout process tested end-to-end</li>
+                    <li>Payment gateways functional (test transactions)</li>
+                    <li>Shipping calculator accurate for all pin codes</li>
+                    <li>Email notifications sending correctly</li>
+                    <li>Product images high-quality and zoomable</li>
+                    <li>SEO meta tags present on all pages</li>
+                    <li>Analytics tracking verified</li>
+                    <li>SSL certificate active (HTTPS)</li>
+                    <li>404 error page functional</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Launch Readiness Checkpoints</h3>
+                <ul class="checklist">
+                    <li>Inventory available and ready to ship</li>
+                    <li>Packaging materials in stock</li>
+                    <li>Order fulfillment process tested</li>
+                    <li>Customer service contacts live</li>
+                    <li>GMB profile active and verified</li>
+                    <li>Social media accounts set up</li>
+                    <li>Email automation tested</li>
+                    <li>Backup plan for website downtime</li>
+                    <li>Return/refund policy published</li>
+                    <li>Legal compliance verified (FSSAI license, GST, etc.)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         RISK MANAGEMENT
+         ============================================ -->
+    <section id="risks" class="section bg-light">
+        <div class="container">
+            <h2>Risk Management</h2>
+
+            <div class="card">
+                <h3>Production Risks</h3>
+                
+                <div class="risk-item">
+                    <div class="risk-title">Risk: Vendor print quality issues or color mismatch</div>
+                    <p>Final pouches may not match approved design specifications.</p>
+                    <div class="mitigation">Mitigation: Approve physical proof before full run; include reprinting clause in vendor contract</div>
+                </div>
+
+                <div class="risk-item">
+                    <div class="risk-title">Risk: MOQ too high for initial budget</div>
+                    <p>Vendor minimum order quantities may exceed financial capacity.</p>
+                    <div class="mitigation">Mitigation: Get quotes from 2-3 vendors; negotiate or consider starting with smaller format if needed</div>
+                </div>
+
+                <div class="risk-item">
+                    <div class="risk-title">Risk: Production delays impact launch timeline</div>
+                    <p>Manufacturing or shipping delays could push back launch date.</p>
+                    <div class="mitigation">Mitigation: Build 2-week buffer; start e-commerce setup in parallel; soft launch possible without full inventory</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Budget Risks</h3>
+                
+                <div class="risk-item">
+                    <div class="risk-title">Risk: Vendor quotes exceed estimates</div>
+                    <p>Packaging production costs may be higher than budgeted.</p>
+                    <div class="mitigation">Mitigation: 15-20% contingency budget; prioritize essentials; phased approach (launch with one SKU)</div>
+                </div>
+
+                <div class="risk-item">
+                    <div class="risk-title">Risk: Hidden costs in e-commerce setup</div>
+                    <p>Apps, plugins, transaction fees may add unexpected expenses.</p>
+                    <div class="mitigation">Mitigation: Research all costs upfront; use free alternatives where possible; factor in 2.5% transaction fees</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Timeline Risks</h3>
+                
+                <div class="risk-item">
+                    <div class="risk-title">Risk: Design revisions take longer than expected</div>
+                    <p>Multiple revision rounds could extend timeline.</p>
+                    <div class="mitigation">Mitigation: Clear revision limits (3 rounds per Khushi's quote); approve "good enough" vs. perfect</div>
+                </div>
+
+                <div class="risk-item">
+                    <div class="risk-title">Risk: Vendor capacity issues delay production</div>
+                    <p>Vendor may not have capacity to meet timeline.</p>
+                    <div class="mitigation">Mitigation: Confirm vendor capacity before committing; identify backup vendor</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Quality Risks</h3>
+                
+                <div class="risk-item">
+                    <div class="risk-title">Risk: Package doesn't preserve coffee freshness</div>
+                    <p>Valve failure or inadequate barrier properties could affect product quality.</p>
+                    <div class="mitigation">Mitigation: Test sample pouches with actual coffee; 2-week freshness test before full launch</div>
+                </div>
+
+                <div class="risk-item">
+                    <div class="risk-title">Risk: E-commerce site has bugs or poor user experience</div>
+                    <p>Technical issues could frustrate customers and reduce conversions.</p>
+                    <div class="mitigation">Mitigation: Thorough testing phase; soft launch to friends/family first; gather feedback</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         RESOURCE REQUIREMENTS
+         ============================================ -->
+    <section id="resources" class="section">
+        <div class="container">
+            <h2>Resource Requirements</h2>
+
+            <div class="card">
+                <h3>Content You Need to Prepare</h3>
+                
+                <div class="collapsible active">
+                    <div class="collapsible-header">
+                        <span><strong>Complete Regulatory Text</strong></span>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="checklist">
+                            <li>FSSAI license number (certification already obtained ✓)</li>
+                            <li>Manufacturer name and full address</li>
+                            <li>Customer care phone and email</li>
+                            <li>Ingredients list with percentages (Coffee: X%, Chicory: Y%)</li>
+                            <li>Nutritional information (get from product testing or standard values)</li>
+                            <li>Storage instructions</li>
+                            <li>Brewing instructions (optional but recommended)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <span><strong>Product Information</strong></span>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="checklist">
+                            <li>Product name/variant names</li>
+                            <li>Pricing strategy (MRP)</li>
+                            <li>Product descriptions (origin story, flavor notes, brewing recommendations)</li>
+                            <li>Net weight confirmation: 250g</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <span><strong>Brand Content</strong></span>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="checklist">
+                            <li>Detailed brand story (1953 founding, family legacy, live grinding USP)</li>
+                            <li>Customer testimonials (if available)</li>
+                            <li>Heritage photos (old shop photos, family photos)</li>
+                            <li>"About Us" content</li>
+                            <li>Founder/owner bio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collapsible">
+                    <div class="collapsible-header">
+                        <span><strong>Visual Assets</strong></span>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="checklist">
+                            <li>High-quality product photography (professional or DIY)</li>
+                            <li>Storefront photos (exterior and interior)</li>
+                            <li>Coffee preparation process photos</li>
+                            <li>Traditional brass filter photos</li>
+                            <li>Behind-the-scenes content</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Information to Gather</h3>
+                <ul class="checklist">
+                    <li>FSSAI license number and certificate (already obtained ✓)</li>
+                    <li>GST registration details</li>
+                    <li>Business PAN</li>
+                    <li>Bank account for payment gateway</li>
+                    <li>Domain name (already secured ✓)</li>
+                    <li>Social media handle preferences</li>
+                    <li>Existing customer database (for launch email list)</li>
+                    <li>Competitor pricing data</li>
+                </ul>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CALL TO ACTION / NEXT STEPS
+         ============================================ -->
+    <section id="next-steps" class="cta-section">
+        <div class="container">
+            <h2>Next Steps / Call to Action</h2>
+
+            <div style="margin: var(--spacing-xl) 0;">
+                <h3 style="color: var(--color-white);">Immediate Actions (This Week)</h3>
+                <div class="action-grid">
+                    <div class="action-item">
+                        <div class="action-number">1</div>
+                        <h4>Approve This Plan</h4>
+                        <p>Review and confirm project roadmap, budget, and timeline</p>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-number">2</div>
+                        <h4>Sign Project Contract</h4>
+                        <p>Execute formal agreement outlining deliverables, timeline, and payment terms</p>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-number">3</div>
+                        <h4>Process Advance Payments</h4>
+                        <p>₹3,500 (design) + ₹30,000 (e-commerce) = ₹33,500 total advance</p>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-number">4</div>
+                        <h4>Contact Vendors</h4>
+                        <p>Reach out to packaging vendors for technical specifications</p>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-number">5</div>
+                        <h4>Brief Khushi</h4>
+                        <p>Share vision board, regulatory requirements, and technical specs</p>
+                    </div>
+                    <div class="action-item">
+                        <div class="action-number">6</div>
+                        <h4>Gather Documents</h4>
+                        <p>Compile FSSAI certificate, GST registration, business PAN</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin: var(--spacing-xl) 0;">
+                <h3 style="color: var(--color-white);">Week 1 Kickoff</h3>
+                <div class="action-grid">
+                    <div class="action-item">
+                        <h4>Project Contract Execution</h4>
+                        <p>Finalize and sign comprehensive project agreement covering all phases</p>
+                    </div>
+                    <div class="action-item">
+                        <h4>Vendor Coordination</h4>
+                        <p>Schedule calls, collect die-lines, evaluate capabilities</p>
+                    </div>
+                    <div class="action-item">
+                        <h4>Khushi Kickoff Meeting</h4>
+                        <p>Share vision board, regulatory requirements, timeline expectations</p>
+                    </div>
+                    <div class="action-item">
+                        <h4>Regulatory Text</h4>
+                        <p>Prepare complete FSSAI-compliant label text (certification already obtained)</p>
+                    </div>
+                    <div class="action-item">
+                        <h4>Project Tracking</h4>
+                        <p>Set up shared document or project management tool</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin: var(--spacing-xl) 0;">
+                <h3 style="color: var(--color-white);">Success Metrics to Track</h3>
+                <div class="card" style="text-align: left;">
+                    <ul style="list-style: none;">
+                        <li style="padding: var(--spacing-sm); border-bottom: 1px solid var(--color-secondary); color: var(--color-text-dark);">
+                            <strong style="color: var(--color-text-dark);">Design Delivery:</strong> On-time completion for each phase
+                        </li>
+                        <li style="padding: var(--spacing-sm); border-bottom: 1px solid var(--color-secondary); color: var(--color-text-dark);">
+                            <strong style="color: var(--color-text-dark);">Budget Adherence:</strong> Within 10% of estimate
+                        </li>
+                        <li style="padding: var(--spacing-sm); border-bottom: 1px solid var(--color-secondary); color: var(--color-text-dark);">
+                            <strong style="color: var(--color-text-dark);">Quality Checkpoints:</strong> All checkpoints passed before proceeding
+                        </li>
+                        <li style="padding: var(--spacing-sm); color: var(--color-text-dark);">
+                            <strong style="color: var(--color-text-dark);">Launch Date:</strong> Achieved by target date (May 2026)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <div class="container">
+            <p style="font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: var(--spacing-md);">
+                "Since 1953. Brewed with legacy. Carried forward with love."
+            </p>
+            <p style="font-size: 0.9rem; color: var(--color-secondary);">
+                Sri Krishna Coffee Works - Digital Transformation Project Plan<br>
+                Created: March 2026 | Timeline: 6-8 Weeks | Budget: ₹1.03L-1.38L
+            </p>
+            <p style="font-size: 0.8rem; margin-top: var(--spacing-md); color: var(--color-secondary-light);">
+                This document is editable. Update dates, costs, and status markers as the project progresses.<br>
+                Print-friendly version: Use browser print (Ctrl+P / Cmd+P) and save as PDF.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT FOR INTERACTIVITY
+         ============================================ -->
+    <script>
+        // Collapsible sections functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger Menu Toggle
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                const navLinks = navMenu.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const isClickInsideNav = navMenu.contains(event.target);
+                    const isClickOnToggle = navToggle.contains(event.target);
+                    
+                    if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
+                        navToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
+
+            // Collapsible sections
+            const collapsibles = document.querySelectorAll('.collapsible-header');
+            
+            collapsibles.forEach(header => {
+                header.addEventListener('click', function() {
+                    const collapsible = this.parentElement;
+                    collapsible.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offset = 80; // Account for sticky nav
+                        const targetPosition = target.offsetTop - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Timeline phase interaction
+            const timelinePhases = document.querySelectorAll('.timeline-phase');
+            timelinePhases.forEach(phase => {
+                phase.addEventListener('click', function() {
+                    // Remove current class from all phases
+                    timelinePhases.forEach(p => p.classList.remove('current'));
+                    // Add current class to clicked phase
+                    this.classList.add('current');
+                });
+            });
+
+            // Add scroll-based animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards and phase cards
+            document.querySelectorAll('.card, .phase-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Print preparation
+        window.addEventListener('beforeprint', function() {
+            // Expand all collapsibles before printing
+            document.querySelectorAll('.collapsible').forEach(el => {
+                el.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
