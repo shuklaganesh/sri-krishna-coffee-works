@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Content Brief — Sri Krishna Coffee Works</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  :root {
+    --espresso: #2C1A0E;
+    --roast: #4A2C17;
+    --mocha: #7B4F2E;
+    --caramel: #C49A6C;
+    --gold: #B8892A;
+    --cream: #F5ECD7;
+    --parchment: #FAF4E8;
+    --warm-white: #FDFAF4;
+    --light-tan: #E8D5B0;
+    --rule: #D6C4A0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', Georgia, sans-serif;
+    font-weight: 400;
+    background: var(--warm-white);
+    color: var(--espresso);
+    line-height: 1.75;
+    font-size: 16px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--espresso);
+    color: var(--warm-white);
+    padding: 64px 48px 56px;
+    text-align: center;
+  }
+  .cover-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 400;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .cover-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--caramel);
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+  .cover-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .cover-meta span {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--light-tan);
+    letter-spacing: 1px;
+  }
+  .cover-meta strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--caramel);
+    letter-spacing: 0;
+    margin-bottom: 2px;
+  }
+
+  /* ── PREAMBLE ── */
+  .preamble {
+    background: var(--cream);
+    border-left: 4px solid var(--gold);
+    padding: 28px 36px;
+    margin: 40px auto;
+    max-width: 800px;
+    border-radius: 0 6px 6px 0;
+  }
+  .preamble p {
+    font-size: 15px;
+    color: var(--roast);
+    line-height: 1.8;
+  }
+  .preamble p + p { margin-top: 12px; }
+
+  /* ── MAIN LAYOUT ── */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+  }
+  .section:first-of-type { border-top: none; }
+
+  .section-number {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 400;
+    color: var(--espresso);
+    margin-bottom: 6px;
+  }
+  .section-desc {
+    font-size: 14px;
+    color: var(--mocha);
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+
+  /* ── SUBSECTION ── */
+  .sub {
+    margin-top: 32px;
+  }
+  .sub-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--roast);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--light-tan);
+  }
+
+  /* ── FIELD ── */
+  .field {
+    margin-bottom: 24px;
+  }
+  .field-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--mocha);
+    margin-bottom: 6px;
+  }
+  .field-hint {
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .field-box {
+    background: var(--parchment);
+    border: 1.5px solid var(--light-tan);
+    border-radius: 6px;
+    padding: 14px 18px;
+    min-height: 52px;
+    font-size: 14px;
+    color: var(--espresso);
+    line-height: 1.7;
+  }
+  .field-box.draft {
+    background: #fffdf7;
+    border-color: var(--caramel);
+    border-style: dashed;
+  }
+  .field-box.draft::before {
+    content: "DRAFT — To be reviewed together:";
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .field-box.blank {
+    min-height: 80px;
+    color: #bbb;
+    font-style: italic;
+  }
+  .field-box.blank::before {
+    content: "To be captured in our session";
+  }
+  .field-box.tall { min-height: 120px; }
+  .field-box.short { min-height: 40px; }
+
+  /* ── DRAFT TEXT (actual content) ── */
+  .draft-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: var(--espresso);
+  }
+
+  /* ── YES/NO ── */
+  .yn {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 0;
+  }
+  .yn-box {
+    width: 20px; height: 20px;
+    border: 2px solid var(--caramel);
+    border-radius: 3px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .yn-label { font-size: 14px; color: var(--espresso); }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--espresso);
+    color: var(--caramel);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--light-tan);
+    vertical-align: top;
+    color: var(--espresso);
+  }
+  tbody tr:nth-child(even) td { background: var(--parchment); }
+  tbody tr:last-child td { border-bottom: none; }
+  .td-hint {
+    font-size: 12px;
+    color: #aaa;
+    font-style: italic;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    list-style: none;
+    margin-top: 16px;
+  }
+  .checklist li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-tan);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-sq {
+    width: 18px; height: 18px;
+    border: 2px solid var(--caramel);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .checklist .item-sub {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* ── NOTE BOX ── */
+  .note {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--mocha);
+    line-height: 1.7;
+  }
+  .note strong { color: var(--roast); }
+
+  /* ── PHOTO GRID ── */
+  .photo-category {
+    margin-bottom: 28px;
+  }
+  .photo-cat-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--roast);
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--light-tan);
+  }
+  .photo-list {
+    list-style: none;
+  }
+  .photo-list li {
+    font-size: 14px;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    color: var(--espresso);
+    border-bottom: 1px solid var(--parchment);
+  }
+  .photo-list li::before {
+    content: '↳';
+    position: absolute;
+    left: 0;
+    color: var(--caramel);
+    font-size: 13px;
+  }
+  .photo-list .ph-note {
+    font-size: 12px;
+    color: #aaa;
+    font-style: italic;
+  }
+
+  /* ── VOICE TAG ── */
+  .voice-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .pill {
+    background: var(--espresso);
+    color: var(--caramel);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .pill.no {
+    background: var(--parchment);
+    color: #999;
+    border: 1px solid var(--light-tan);
+    text-decoration: line-through;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--espresso);
+    color: var(--light-tan);
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  footer .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--caramel);
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; font-size: 13px; }
+    .cover { background: #2C1A0E !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { page-break-inside: avoid; }
+    .note, .preamble { page-break-inside: avoid; }
+    table { page-break-inside: avoid; }
+    footer { background: #2C1A0E !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 0 20px 60px; }
+    .cover { padding: 48px 24px 40px; }
+    .preamble { padding: 20px 24px; margin: 28px 20px; }
+    .cover-meta { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ COVER ══════════════════ -->
+<div class="cover">
+  <p class="cover-label">Confidential · For Client Review</p>
+  <h1>Website Content Brief</h1>
+  <p class="cover-sub">Sri Krishna Coffee Works — Since 1953</p>
+  <div class="cover-meta">
+    <div><strong>Prepared For</strong>Sri Krishna Coffee Works</div>
+    <div><strong>Document Date</strong>April 2026</div>
+    <div><strong>Go-Live Target</strong>Mid-June 2026</div>
+    <div><strong>Platform</strong>Shopify (D2C)</div>
+  </div>
+</div>
+
+<!-- ══════════════════ CONTAINER ══════════════════ -->
+<div class="container">
+
+  <div class="preamble">
+    <p>This document is a working reference for our upcoming in-person sessions. It outlines the information and content we will work through together — section by section — so that the website truly reflects the story, craft, and character of Sri Krishna Coffee Works.</p>
+    <p>Some sections already carry draft content based on our brand work so far, ready to be refined in conversation. Others are open for us to fill in together, guided by the knowledge and experience that only comes from seven decades of doing things the right way.</p>
+  </div>
+
+
+  <!-- ══════════════════ SECTION 1: BRAND VOICE ══════════════════ -->
+  <div class="section">
+    <p class="section-number">Section 01</p>
+    <h2 class="section-title">Brand Voice &amp; Messaging</h2>
+    <p class="section-desc">How the brand sounds across the entire website — headlines, product descriptions, and every line of copy.</p>
+
+    <div class="sub">
+      <p class="sub-title">How the Brand Speaks</p>
+      <p class="field-hint" style="font-size:14px;color:var(--mocha);margin-bottom:16px;">Based on our brand work so far, here is how Sri Krishna Coffee Works communicates. We will walk through each point together in person to make sure every word feels true to the brand.</p>
+
+      <div class="field">
+        <div class="field-label">Brand Personality — In a Word</div>
+        <div class="voice-pills">
+          <span class="pill">Warm</span>
+          <span class="pill">Dignified</span>
+          <span class="pill">Honest</span>
+          <span class="pill">Rooted</span>
+          <span class="pill">Quietly Confident</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">What the Brand Sounds Like</div>
+        <div class="field-box draft">
+          <div class="draft-text">The brand voice is warm and dignified, rooted in South Indian culture and faith. It speaks with quiet confidence — reflecting family pride and devotion to craft. The tone is nostalgic yet forward-looking, always honest about ingredients and tradition. Communication feels personal and sincere, never corporate or promotional.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">What the Brand Does NOT Sound Like</div>
+        <div class="voice-pills">
+          <span class="pill no">Trendy / Hipster</span>
+          <span class="pill no">Salesy / Pushy</span>
+          <span class="pill no">Corporate</span>
+          <span class="pill no">Over-excited</span>
+        </div>
+        <div class="note" style="margin-top:12px;">We avoid language like "premium artisanal experience" or "curated blends." The craft speaks for itself — and so will the copy.</div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <p class="sub-title">Key Messages</p>
+
+      <div class="field">
+        <div class="field-label">Main Tagline (confirmed)</div>
+        <div class="field-box" style="font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--espresso);">
+          "Ground Fresh. Every Single Day."
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Supporting Line (appears under the tagline on the website)</div>
+        <div class="field-box draft">
+          <div class="draft-text">Since 1953. Brewed with legacy. Carried forward with love.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">The #1 Point of Difference — in one sentence</div>
+        <div class="field-box draft">
+          <div class="draft-text">We grind fresh in front of every customer — no pre-packaged powder, no compromises — exactly as we have since 1953.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Anything to add or refine about how the brand communicates</div>
+        <div class="field-hint">We will explore this together in our session.</div>
+        <div class="field-box blank tall"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════ SECTION 2: HOMEPAGE ══════════════════ -->
+  <div class="section">
+    <p class="section-number">Section 02</p>
+    <h2 class="section-title">Homepage</h2>
+    <p class="section-desc">The homepage is divided into sections. Draft content has been prepared for each — we will review and refine these together during our session.</p>
+
+    <!-- 2.1 Hero -->
+    <div class="sub">
+      <p class="sub-title">2.1 — Hero (Top of the Page)</p>
+      <p class="field-hint">The first thing a visitor sees. A short, powerful headline and a one-line description. Drafts are ready below for our review.</p>
+
+      <div class="field">
+        <div class="field-label">Main Headline</div>
+        <div class="field-box draft">
+          <div class="draft-text">Ground Fresh. Every Single Day.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Sub-Headline (one line beneath the headline)</div>
+        <div class="field-box draft">
+          <div class="draft-text">Authentic South Indian filter coffee, ground fresh in front of you. From our family to yours — since 1953.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Button Text (takes the visitor to shop)</div>
+        <div class="field-box draft">
+          <div class="draft-text">Shop Our Coffee</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Hero Image</div>
+        <div class="note">This will be a full-width photograph — ideally the coffee being ground at the store, or a close-up of freshly ground coffee. We will finalise this during the photography session. Please refer to Section 06 for details.</div>
+      </div>
+    </div>
+
+    <!-- 2.2 Trust Strip -->
+    <div class="sub">
+      <p class="sub-title">2.2 — Trust Strip (3 short reasons to trust the brand)</p>
+      <p class="field-hint">Three short phrases that anchor the brand's credibility at a glance. We will finalise the wording together.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:35%">Trust Point</th>
+            <th>Text (keep it to 5–7 words)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Heritage</td>
+            <td><span class="draft-text">Serving the best coffee since 1953</span></td>
+          </tr>
+          <tr>
+            <td>Freshness</td>
+            <td><span class="draft-text">Ground fresh, every single day</span></td>
+          </tr>
+          <tr>
+            <td>Quality</td>
+            <td><span class="draft-text">No pre-packaged powder. Ever.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 2.3 Featured Products -->
+    <div class="sub">
+      <p class="sub-title">2.3 — Featured Products</p>
+      <p class="field-hint">We will display 3–4 of the best-selling products here. We will decide together which ones lead.</p>
+
+      <div class="field">
+        <div class="field-label">Products to feature on the homepage (to be confirmed in our session)</div>
+        <div class="field-box blank tall"></div>
+      </div>
+    </div>
+
+    <!-- 2.4 Brand Story Snapshot -->
+    <div class="sub">
+      <p class="sub-title">2.4 — Brand Story Snapshot</p>
+      <p class="field-hint">A short 2–3 sentence teaser that links to the full About Us page.</p>
+
+      <div class="field">
+        <div class="field-label">Short Brand Story (homepage version)</div>
+        <div class="field-box draft">
+          <div class="draft-text">It started with a brass grinder on R.P. Road, Secunderabad — and a simple belief that coffee should smell like a promise kept. Over 70 years later, we still grind fresh in front of every customer. Some things are worth keeping unchanged.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.5 Testimonials -->
+    <div class="sub">
+      <p class="sub-title">2.5 — Customer Testimonials</p>
+      <p class="field-hint">3 short reviews from loyal customers. These can come from long-standing regulars, walk-in customers, or anyone who knows the coffee well. First name and area is enough (e.g., "Ravi, Secunderabad"). We will gather these together during our session.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name &amp; Area</th>
+            <th>What They Said (in their words)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-box blank short"></div></td>
+            <td><div class="field-box blank tall"></div></td>
+          </tr>
+          <tr>
+            <td><div class="field-box blank short"></div></td>
+            <td><div class="field-box blank tall"></div></td>
+          </tr>
+          <tr>
+            <td><div class="field-box blank short"></div></td>
+            <td><div class="field-box blank tall"></div></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">If written testimonials aren't available, we can approach a few regulars together — even a sentence or two is enough for us to work with.</div>
+    </div>
+
+    <!-- 2.6 Newsletter -->
+    <div class="sub">
+      <p class="sub-title">2.6 — Newsletter Sign-Up</p>
+      <p class="field-hint">A small section at the bottom inviting visitors to join the mailing list for offers and updates.</p>
+
+      <div class="field">
+        <div class="field-label">Sign-Up Headline</div>
+        <div class="field-box draft">
+          <div class="draft-text">Get First Sip — Offers, Recipes &amp; Updates</div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-label">Sign-Up Button Text</div>
+        <div class="field-box draft">
+          <div class="draft-text">Subscribe</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════ SECTION 3: ABOUT US ══════════════════ -->
+  <div class="section">
+    <p class="section-number">Section 03</p>
+    <h2 class="section-title">About Us Page</h2>
+    <p class="section-desc">The About Us page is where the heart of the brand lives — and no one knows this story better than the people who have lived it. We have prepared a draft to serve as a starting point. During our session, we will enrich it with the details, memories, and nuances that only come from 70 years on R.P. Road.</p>
+
+    <div class="sub">
+      <p class="sub-title">Page Headline</p>
+      <div class="field">
+        <div class="field-box draft">
+          <div class="draft-text">A Humble Shop. An Unshakeable Belief.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <p class="sub-title">The Story (Draft — To Be Refined Together)</p>
+
+      <div class="field">
+        <div class="field-label">Paragraph 1 — The Beginning</div>
+        <div class="field-box draft">
+          <div class="draft-text">It began in 1953 on R.P. Road, Secunderabad. A small shop, a brass grinder, and an unshakeable belief — that coffee should smell like a promise kept. Sri Krishna Coffee Works was built from scratch by a family that understood one thing deeply: freshness cannot be faked.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Paragraph 2 — The Craft</div>
+        <div class="field-box draft">
+          <div class="draft-text">Since day one, we have ground coffee in front of every customer. No machines hidden in the back. No pre-ground powder sitting on a shelf. Every batch is roasted and ground fresh — the same way it has been done for over 70 years. That is not a marketing promise. It is simply how we work.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Paragraph 3 — The Family &amp; The Neighbourhood</div>
+        <div class="field-hint">We will build this paragraph together in our session — drawing on the founding story, the generations involved, and the moments that define what this shop means to the people of Hyderabad and Secunderabad.</div>
+        <div class="field-box blank tall"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Paragraph 4 — Today &amp; The Future</div>
+        <div class="field-box draft">
+          <div class="draft-text">Today, Sri Krishna Coffee Works is taking its first step online — not to change what we are, but to bring what we have always made to more homes across India. The coffee is the same. The grinder still runs every morning. And every pouch that leaves our hands is ground fresh, just as it always has been.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <p class="sub-title">Founder &amp; Family Details</p>
+      <p class="field-hint">This will appear as a short line near a photograph on the About page. We will capture this together during our session.</p>
+
+      <div class="field">
+        <div class="field-label">Name of the Founder (who established the business in 1953)</div>
+        <div class="field-box blank short"></div>
+      </div>
+      <div class="field">
+        <div class="field-label">Who leads the business today? (Name + relationship to founder)</div>
+        <div class="field-box blank short"></div>
+      </div>
+      <div class="field">
+        <div class="field-label">Other family members involved in the business</div>
+        <div class="field-box blank"></div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <p class="sub-title">Brand Promise (appears at the bottom of About page)</p>
+
+      <div class="field">
+        <div class="field-label">One-line brand promise</div>
+        <div class="field-box draft">
+          <div class="draft-text">Ground Fresh. Every Single Day. No exceptions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════ SECTION 4: PRODUCT PAGES ══════════════════ -->
+  <div class="section">
+    <p class="section-number">Section 04</p>
+    <h2 class="section-title">Product Pages — SKU Tracker</h2>
+    <p class="section-desc">This section captures the details of each product we will launch with. We will go through this together — the expertise on each blend, its character, and what makes it a customer favourite resides entirely with the Sri Krishna Coffee Works team.</p>
+
+    <div class="note" style="margin-bottom:24px;">
+      <strong>On Flavour Notes:</strong> We will discuss these in person. Think of how a long-standing customer would describe the coffee to someone trying it for the first time — that instinct is exactly what the website needs to convey.
+    </div>
+
+    <!-- SKU 1 -->
+    <div class="sub">
+      <p class="sub-title">Product 1</p>
+      <table>
+        <tbody>
+          <tr><td style="width:34%;font-weight:600;">Product Name</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Coffee : Chicory Ratio</td><td><div class="field-box blank short"></div><span class="td-hint">e.g., 80:20, 70:30, 100% Pure Coffee</span></td></tr>
+          <tr><td style="font-weight:600;">Pack Size(s) Available</td><td><div class="field-box blank short"></div><span class="td-hint">e.g., 250g / 500g</span></td></tr>
+          <tr><td style="font-weight:600;">MRP (per pack)</td><td><div class="field-box blank short"></div><span class="td-hint">e.g., ₹180 for 250g</span></td></tr>
+          <tr><td style="font-weight:600;">Grind Type</td><td><div class="field-box blank short"></div><span class="td-hint">Fine / Medium / Coarse / Customer's choice</span></td></tr>
+          <tr><td style="font-weight:600;">Who is this for?</td><td><div class="field-box blank"></div><span class="td-hint">e.g., "Those who want a strong morning cup with lots of milk"</span></td></tr>
+          <tr><td style="font-weight:600;">Flavour Notes</td><td><div class="field-box blank"></div><span class="td-hint">To be captured in our session — describe the taste as the team knows it</span></td></tr>
+          <tr><td style="font-weight:600;">Brewing Recommendation</td><td><div class="field-box blank"></div><span class="td-hint">e.g., "Best made in a traditional filter with 2 tsp per cup"</span></td></tr>
+          <tr><td style="font-weight:600;">What makes this product special?</td><td><div class="field-box blank tall"></div><span class="td-hint">A detail, a backstory, why customers return for this one specifically</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SKU 2 -->
+    <div class="sub">
+      <p class="sub-title">Product 2</p>
+      <table>
+        <tbody>
+          <tr><td style="width:34%;font-weight:600;">Product Name</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Coffee : Chicory Ratio</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Pack Size(s) Available</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">MRP (per pack)</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Grind Type</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Who is this for?</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Flavour Notes</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Brewing Recommendation</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">What makes this product special?</td><td><div class="field-box blank tall"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SKU 3 -->
+    <div class="sub">
+      <p class="sub-title">Product 3</p>
+      <table>
+        <tbody>
+          <tr><td style="width:34%;font-weight:600;">Product Name</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Coffee : Chicory Ratio</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Pack Size(s) Available</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">MRP (per pack)</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Grind Type</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Who is this for?</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Flavour Notes</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Brewing Recommendation</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">What makes this product special?</td><td><div class="field-box blank tall"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SKU 4 -->
+    <div class="sub">
+      <p class="sub-title">Product 4</p>
+      <table>
+        <tbody>
+          <tr><td style="width:34%;font-weight:600;">Product Name</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Coffee : Chicory Ratio</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Pack Size(s) Available</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">MRP (per pack)</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Grind Type</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Who is this for?</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Flavour Notes</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Brewing Recommendation</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">What makes this product special?</td><td><div class="field-box blank tall"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SKU 5 -->
+    <div class="sub">
+      <p class="sub-title">Product 5</p>
+      <table>
+        <tbody>
+          <tr><td style="width:34%;font-weight:600;">Product Name</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Coffee : Chicory Ratio</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Pack Size(s) Available</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">MRP (per pack)</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Grind Type</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Who is this for?</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Flavour Notes</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Brewing Recommendation</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">What makes this product special?</td><td><div class="field-box blank tall"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SKU 6 -->
+    <div class="sub">
+      <p class="sub-title">Product 6 <span style="font-size:13px;font-weight:400;color:#aaa;">(if applicable)</span></p>
+      <table>
+        <tbody>
+          <tr><td style="width:34%;font-weight:600;">Product Name</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Coffee : Chicory Ratio</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Pack Size(s) Available</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">MRP (per pack)</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Grind Type</td><td><div class="field-box blank short"></div></td></tr>
+          <tr><td style="font-weight:600;">Who is this for?</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Flavour Notes</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">Brewing Recommendation</td><td><div class="field-box blank"></div></td></tr>
+          <tr><td style="font-weight:600;">What makes this product special?</td><td><div class="field-box blank tall"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Common Product Info -->
+    <div class="sub">
+      <p class="sub-title">Common Information (applies to all products)</p>
+
+      <div class="field">
+        <div class="field-label">FSSAI License Number</div>
+        <div class="field-box blank short"></div>
+      </div>
+      <div class="field">
+        <div class="field-label">Manufacturer Name &amp; Full Address (as on FSSAI certificate)</div>
+        <div class="field-box blank"></div>
+      </div>
+      <div class="field">
+        <div class="field-label">Customer Care Number</div>
+        <div class="field-box blank short"></div>
+      </div>
+      <div class="field">
+        <div class="field-label">Customer Care Email</div>
+        <div class="field-box blank short"></div>
+      </div>
+      <div class="field">
+        <div class="field-label">Storage Instructions</div>
+        <div class="field-box draft"><div class="draft-text">Store in a cool, dry place. Keep away from direct sunlight. Once opened, use within 30 days.</div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════ SECTION 5: GOOGLE BUSINESS PROFILE ══════════════════ -->
+  <div class="section">
+    <p class="section-number">Section 05</p>
+    <h2 class="section-title">Google Business Profile</h2>
+    <p class="section-desc">This is what people see when they search for Sri Krishna Coffee Works on Google Maps. We will go through each field together to make sure the listing is accurate and complete.</p>
+
+    <div class="sub">
+      <p class="sub-title">Basic Information</p>
+
+      <div class="field">
+        <div class="field-label">Business Name (exactly as it should appear on Google)</div>
+        <div class="field-box draft"><div class="draft-text">Sri Krishna Coffee Works</div></div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Full Address</div>
+        <div class="field-box draft"><div class="draft-text">R.P. Road, Secunderabad, Hyderabad, Telangana</div></div>
+        <div class="field-hint" style="margin-top:6px;">We will confirm the door number / shop number in our session.</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Primary Phone Number</div>
+        <div class="field-box blank short"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Website URL</div>
+        <div class="field-box blank short"></div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Opening Hours</div>
+        <table>
+          <thead><tr><th>Day</th><th>Opens At</th><th>Closes At</th><th>Closed?</th></tr></thead>
+          <tbody>
+            <tr><td>Monday</td><td><div class="field-box blank short"></div></td><td><div class="field-box blank short"></div></td><td><div class="yn"><div class="yn-box"></div><span class="yn-label">Yes</span></div></td></tr>
+            <tr><td>Tuesday</td><td><div class="field-box blank short"></div></td><td><div class="field-box blank short"></div></td><td><div class="yn"><div class="yn-box"></div><span class="yn-label">Yes</span></div></td></tr>
+            <tr><td>Wednesday</td><td><div class="field-box blank short"></div></td><td><div class="field-box blank short"></div></td><td><div class="yn"><div class="yn-box"></div><span class="yn-label">Yes</span></div></td></tr>
+            <tr><td>Thursday</td><td><div class="field-box blank short"></div></td><td><div class="field-box blank short"></div></td><td><div class="yn"><div class="yn-box"></div><span class="yn-label">Yes</span></div></td></tr>
+            <tr><td>Friday</td><td><div class="field-box blank short"></div></td><td><div class="field-box blank short"></div></td><td><div class="yn"><div class="yn-box"></div><span class="yn-label">Yes</span></div></td></tr>
+            <tr><td>Saturday</td><td><div class="field-box blank short"></div></td><td><div class="field-box blank short"></div></td><td><div class="yn"><div class="yn-box"></div><span class="yn-label">Yes</span></div></td></tr>
+            <tr><td>Sunday</td><td><div class="field-box blank short"></div></td><td><div class="field-box blank short"></div></td><td><div class="yn"><div class="yn-box"></div><span class="yn-label">Yes</span></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sub">
+      <p class="sub-title">Business Description</p>
+      <p class="field-hint">A short paragraph that appears on the Google listing (maximum 750 characters). A draft has been prepared below — we will refine the wording together.</p>
+
+      <div class="field">
+        <div class="field-box draft">
+          <div class="draft-text">Sri Krishna Coffee Works has been a beloved part of the twin cities of Hyderabad and Secunderabad since 1953. We specialise in authentic South Indian filter coffee — ground fresh in front of every customer, every single day. No pre-packaged powder. No compromises. Just honest, freshly ground coffee the way it has always been made. Visit us on R.P. Road or order online and have the same freshness delivered to your home.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <p class="sub-title">Services &amp; Attributes</p>
+      <p class="field-hint">We will confirm these together — tick all that apply to the shop.</p>
+
+      <ul class="checklist">
+        <li><div class="check-sq"></div><div>In-store shopping (customers can walk in and buy)</div></li>
+        <li><div class="check-sq"></div><div>Online ordering (through the new website)</div></li>
+        <li><div class="check-sq"></div><div>Delivery (via the new website)</div></li>
+        <li><div class="check-sq"></div><div>Cash payments accepted</div></li>
+        <li><div class="check-sq"></div><div>UPI / digital payments accepted</div></li>
+        <li><div class="check-sq"></div><div>Family-owned business</div></li>
+        <li><div class="check-sq"></div><div>Locally owned</div></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════ SECTION 6: PHOTOGRAPHY BRIEF ══════════════════ -->
+  <div class="section">
+    <p class="section-number">Section 06</p>
+    <h2 class="section-title">Photography Brief</h2>
+    <p class="section-desc">Good photographs are the single most important asset for a food brand online. Below is a shoot list we have prepared — this will be shared with the photographer once confirmed. We will walk through this list together before the shoot.</p>
+
+    <div class="note" style="margin-bottom:28px;">
+      <strong>General Style:</strong> Warm, natural light. Rich browns and golds. Nothing too polished or studio-like — it should feel real and lived-in, true to the spirit of the shop. Avoid white backgrounds for most shots.
+    </div>
+
+    <div class="photo-category">
+      <p class="photo-cat-title">A — The Store &amp; Space</p>
+      <ul class="photo-list">
+        <li>Exterior of the shop on R.P. Road — full frontage, clean and well-lit <span class="ph-note">(Morning light preferred)</span></li>
+        <li>The grinder — close-up, in action, coffee falling fresh <span class="ph-note">(The centrepiece shot for the website)</span></li>
+        <li>The counter / interior — showing the daily operation, not staged</li>
+        <li>Bags or jars of coffee on the shelf — warm, rich colours</li>
+        <li>Old signage or any heritage element of the shop, if available</li>
+      </ul>
+    </div>
+
+    <div class="photo-category">
+      <p class="photo-cat-title">B — The Products</p>
+      <ul class="photo-list">
+        <li>Each pouch / pack — clean product shot on a neutral surface <span class="ph-note">(One per SKU)</span></li>
+        <li>Pouches grouped together — a collection / family shot</li>
+        <li>Freshly ground coffee powder — close-up texture shot</li>
+        <li>Unroasted or roasted beans (if available at the store)</li>
+      </ul>
+    </div>
+
+    <div class="photo-category">
+      <p class="photo-cat-title">C — The Coffee Experience</p>
+      <ul class="photo-list">
+        <li>Traditional filter — decoction dripping into the lower chamber</li>
+        <li>Coffee being poured from the filter into a tumbler or cup</li>
+        <li>A steaming cup of filter coffee — close-up, warm light</li>
+        <li>Cup of coffee with a South Indian breakfast setting <span class="ph-note">(Optional but powerful)</span></li>
+      </ul>
+    </div>
+
+    <div class="photo-category">
+      <p class="photo-cat-title">D — The People <span style="font-size:12px;font-weight:400;color:#aaa;">(Optional, but strongly recommended)</span></p>
+      <ul class="photo-list">
+        <li>The person behind the counter — candid, working, not posed</li>
+        <li>A customer being served — natural interaction</li>
+        <li>Hands scooping or handling fresh coffee grounds</li>
+      </ul>
+    </div>
+
+    <div class="field" style="margin-top:24px;">
+      <div class="field-label">Are there any old or archival photos of the shop from its early days?</div>
+      <div class="yn"><div class="yn-box"></div><span class="yn-label">Yes — will share them</span></div>
+      <div class="yn"><div class="yn-box"></div><span class="yn-label">No</span></div>
+      <div class="yn"><div class="yn-box"></div><span class="yn-label">Not sure — will check</span></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Is the owner comfortable being photographed for the website?</div>
+      <div class="yn"><div class="yn-box"></div><span class="yn-label">Yes, comfortable</span></div>
+      <div class="yn"><div class="yn-box"></div><span class="yn-label">Only if necessary</span></div>
+      <div class="yn"><div class="yn-box"></div><span class="yn-label">Prefer not to</span></div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════ SECTION 7: JOINT ACTION ITEMS ══════════════════ -->
+  <div class="section">
+    <p class="section-number">Section 07</p>
+    <h2 class="section-title">What We'll Work Through Together</h2>
+    <p class="section-desc">A shared checklist of everything we will cover across our sessions. This is a reference — not a to-do list. We will move through these items together, at the right pace.</p>
+
+    <div class="sub">
+      <p class="sub-title">Priority Items — First Session</p>
+      <ul class="checklist">
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Finalise the product list (SKUs) — names, ratios, pack sizes and MRP
+            <span class="item-sub">This is the foundation — once confirmed, product pages and packaging can begin</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            FSSAI certificate — a soft copy to be shared at the earliest
+            <span class="item-sub">Required for packaging labels and website compliance text</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Store opening hours — to be confirmed and recorded
+            <span class="item-sub">For the Google Business Profile setup</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Primary phone number and customer-facing email address
+            <span class="item-sub">For the website footer, Google listing, and WhatsApp Business</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub">
+      <p class="sub-title">Content — To Be Captured in Our Sessions</p>
+      <ul class="checklist">
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Brand Voice — review and refine the draft in Section 01 together
+            <span class="item-sub">Ensuring every word reflects how Sri Krishna Coffee Works has always spoken</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Customer testimonials — 3 voices from long-standing regulars (Section 02.5)
+            <span class="item-sub">We will identify the right customers together and handle the rest</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Founder and family details — to be captured in conversation (Section 03)
+            <span class="item-sub">The story behind the name, the family legacy, and the generations involved</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Product knowledge — flavour notes, character and customer stories per SKU (Section 04)
+            <span class="item-sub">This expertise lives with the team — we will draw it out in our session</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Google Business Profile description — review and confirm the draft in Section 05
+            <span class="item-sub">To be fine-tuned in person before the listing goes live</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub">
+      <p class="sub-title">Photography</p>
+      <ul class="checklist">
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Archival photos — any old photographs of the shop or the family from its early years
+            <span class="item-sub">Even low-resolution scans or phone photos carry enormous value for the brand story</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Photography session — a half-day at the store, to be scheduled together
+            <span class="item-sub">We will coordinate the photographer and share the brief in advance</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Store readiness for the shoot — grinder, counter, and product display in good order
+            <span class="item-sub">The goal is authentic, not staged — the shop simply at its everyday best</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub">
+      <p class="sub-title">Accounts &amp; Approvals</p>
+      <ul class="checklist">
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Razorpay KYC — we will share the link and guide the process
+            <span class="item-sub">Required to accept online payments — activation takes 5–7 working days</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            WhatsApp Business — to be set up on the store's phone number
+            <span class="item-sub">For order updates and direct customer communication</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-sq"></div>
+          <div>
+            Final website approval — a preview will be shared before anything goes live
+            <span class="item-sub">Nothing is published without a full sign-off from the Sri Krishna Coffee Works team</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="note" style="margin-top:32px;">
+      <strong>A note on our process:</strong> This document is a guide for our conversations — not a form to be filled alone. Every section will be worked through together in person, so that the website that goes live is a true and faithful reflection of what Sri Krishna Coffee Works has built over seven decades.
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p class="footer-brand">Sri Krishna Coffee Works — Since 1953</p>
+  <p>Website Content Brief · Prepared April 2026</p>
+  <p style="margin-top:8px;font-size:12px;color:#7a6a58;">To save as PDF: Open in Chrome → File → Print → Save as PDF</p>
+</footer>
+
+</body>
+</html>
